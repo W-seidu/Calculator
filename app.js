@@ -24,13 +24,14 @@ const displayScreen = document.querySelector("#screentwo")
 const buttons =  document.querySelectorAll("button");
 
 let currentInput = "";
-
+let displayInput = "";
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const buttonText = button.textContent;
         if (buttonText === "AC") {
             currentInput = "";
+            displayInput = "";
             updateScreen();
         } else if (buttonText === "DEL") {
             currentInput = currentInput.slice(0, -1);
@@ -38,12 +39,14 @@ buttons.forEach((button) => {
         } else if ((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
         || (buttonText === "/")) {
             storeOperator = buttonText;
-            currentInput += buttonText;
+            storeFirstNumber = +currentInput; 
+            displayInput = `${currentInput} ${buttonText}`;
+            currentInput = "";
             updateScreen();
-            storeFirstNumber = +currentInput.slice(0, currentInput.indexOf(buttonText)); 
         }  else if (buttonText === "=") {
-            storeSecondNumber = +currentInput.slice(currentInput.indexOf(storeOperator) + 1);
+            storeSecondNumber = +currentInput.slice(currentInput.indexOf(storeOperator));
             currentInput = operate(storeFirstNumber, storeSecondNumber, storeOperator);
+            displayInput = `${storeFirstNumber} ${storeOperator} ${storeSecondNumber}`;
             updateScreen();
         } else {
             currentInput += buttonText;
@@ -54,15 +57,10 @@ buttons.forEach((button) => {
 
 function updateScreen() {
     screen.value = currentInput;
-    if (currentInput.includes("=")) {
-        screen.value = currentInput;
-        displayScreen.value = currentInput.slice(0, -1)
-    };
+    displayScreen.value = displayInput;
 }
 
-// function displayScreen() {
-//     displayScreen.value = currentInput.slice(0, -1);
-// }
+
 
 
 const operate = function(x, y, opr) { 
@@ -70,7 +68,7 @@ const operate = function(x, y, opr) {
     y = storeSecondNumber;
     opr = storeOperator;
     if (opr === "+") {
-       return add(x, y);
+        return add(x, y);
     } else if (opr === "-") {
         return subtract(x, y);
     } else if (opr === "*") {
@@ -79,5 +77,4 @@ const operate = function(x, y, opr) {
         return divide(x, y);
     }
 }
-
 
