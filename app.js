@@ -26,6 +26,11 @@ let currentInput = "";
 let displayInput = "";
 let decimalAllowed = true;
 
+function roundUpToDecimal(number, decimalPlaces) {
+  const factor = 10 ** decimalPlaces;
+  return Math.round(number * factor) / factor;
+}
+
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const buttonText = button.textContent;
@@ -48,8 +53,8 @@ buttons.forEach((button) => {
             currentInput = "";
             updateScreen();
         }  else if (buttonText === "=") {
-            storeSecondNumber = +currentInput.slice(currentInput.indexOf(storeOperator));
-            currentInput = (operate(storeFirstNumber, storeSecondNumber, storeOperator)).toFixed(10);
+            storeSecondNumber = +currentInput;
+            currentInput = roundUpToDecimal(operate(storeFirstNumber, storeSecondNumber, storeOperator), 4);
             displayInput = `${storeFirstNumber} ${storeOperator} ${storeSecondNumber}`;
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
