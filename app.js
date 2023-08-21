@@ -30,9 +30,13 @@ buttons.forEach((button) => {
     button.addEventListener("click", () => {
         const buttonText = button.textContent;
         if (buttonText === "AC") {
+            storeFirstNumber = "";
+            storeSecondNumber = "";
+            storeOperator = "";
             currentInput = "";
             displayInput = "";
-            updateScreen();
+            document.getElementById("screenone").value = "";
+            document.getElementById("screentwo").value = "";
         } else if (buttonText === "DEL") {
             currentInput = currentInput.slice(0, -1);
             updateScreen();
@@ -50,6 +54,10 @@ buttons.forEach((button) => {
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
             decimalAllowed = false;
+        } else if ((buttonText === "=") && !((currentInput.includes("+")) || 
+        (currentInput.includes("-")) || (currentInput.includes("*")) || (currentInput.includes("/")))) {
+            currentInput += ""
+            updateScreen();
         } else {
             currentInput += buttonText;
             updateScreen();
@@ -61,8 +69,6 @@ function updateScreen() {
     screen.value = currentInput;
     displayScreen.value = displayInput;
 }
-
-
 
 
 const operate = function(x, y, opr) { 
