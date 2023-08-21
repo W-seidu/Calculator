@@ -19,12 +19,13 @@ let storeSecondNumber;
 let storeOperator;
 
 const screen = document.querySelector("#screenone");
-const displayScreen = document.querySelector("#screentwo")
+const displayScreen = document.querySelector("#screentwo");
 
 const buttons =  document.querySelectorAll("button");
 
 let currentInput = "";
 let displayInput = "";
+let decimalAllowed = true;
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -48,6 +49,8 @@ buttons.forEach((button) => {
             currentInput = operate(storeFirstNumber, storeSecondNumber, storeOperator);
             displayInput = `${storeFirstNumber} ${storeOperator} ${storeSecondNumber}`;
             updateScreen();
+        } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
+            decimalAllowed = false;
         } else {
             currentInput += buttonText;
             updateScreen();
