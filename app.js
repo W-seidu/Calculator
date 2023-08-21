@@ -20,7 +20,6 @@ let storeOperator;
 
 const screen = document.querySelector("#screenone");
 const displayScreen = document.querySelector("#screentwo");
-
 const buttons =  document.querySelectorAll("button");
 
 let currentInput = "";
@@ -46,7 +45,7 @@ buttons.forEach((button) => {
             updateScreen();
         }  else if (buttonText === "=") {
             storeSecondNumber = +currentInput.slice(currentInput.indexOf(storeOperator));
-            currentInput = operate(storeFirstNumber, storeSecondNumber, storeOperator);
+            currentInput = (operate(storeFirstNumber, storeSecondNumber, storeOperator)).toFixed(10);
             displayInput = `${storeFirstNumber} ${storeOperator} ${storeSecondNumber}`;
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
