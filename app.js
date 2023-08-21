@@ -25,6 +25,7 @@ const buttons =  document.querySelectorAll("button");
 let currentInput = "";
 let displayInput = "";
 let decimalAllowed = true;
+let equalToAllowed = true;
 
 function roundUpToDecimal(number, decimalPlaces) {
   const factor = 10 ** decimalPlaces;
@@ -52,18 +53,18 @@ buttons.forEach((button) => {
             displayInput = `${currentInput} ${buttonText}`;
             currentInput = "";
             updateScreen();
-        }  else if (buttonText === "=") {
+        } else if ((buttonText === "=") && (displayInput === "")) {
+            equalToAllowed = false;
+        } else if ((buttonText === "=") && (currentInput === "")) {
+            equalToAllowed = false;
+        } else if (buttonText === "=") {
             storeSecondNumber = +currentInput;
             currentInput = roundUpToDecimal(operate(storeFirstNumber, storeSecondNumber, storeOperator), 4);
             displayInput = `${storeFirstNumber} ${storeOperator} ${storeSecondNumber}`;
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
             decimalAllowed = false;
-        } else if ((buttonText === "=") && !((currentInput.includes("+")) || 
-        (currentInput.includes("-")) || (currentInput.includes("*")) || (currentInput.includes("/")))) {
-            currentInput += ""
-            updateScreen();
-        } else {
+        }  else {
             currentInput += buttonText;
             updateScreen();
         }
