@@ -14,6 +14,10 @@ const divide = function(a, b) {
     return a / b;
 }
 
+const exponent = function (a, b) {
+    return a ** b;
+}
+
 let storeFirstNumber;
 let storeSecondNumber;
 let storeOperator;
@@ -26,6 +30,7 @@ let currentInput = "";
 let displayInput = "";
 let decimalAllowed = true;
 let equalToAllowed = true;
+let exponentAllowed = true;
 
 function roundUpToDecimal(number, decimalPlaces) {
   const factor = 10 ** decimalPlaces;
@@ -47,7 +52,7 @@ buttons.forEach((button) => {
             currentInput = currentInput.slice(0, -1);
             updateScreen();
         } else if ((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
-        || (buttonText === "/")) {
+        || (buttonText === "/") || (buttonText === "^")) {
             storeOperator = buttonText;
             storeFirstNumber = +currentInput; 
             displayInput = `${currentInput} ${buttonText}`;
@@ -64,7 +69,9 @@ buttons.forEach((button) => {
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
             decimalAllowed = false;
-        }  else {
+        } else if ((buttonText === "^") && (currentInput === "")) {
+            exponentAllowed = false;
+        } else {
             currentInput += buttonText;
             updateScreen();
         }
@@ -75,7 +82,6 @@ function updateScreen() {
     screen.value = currentInput;
     displayScreen.value = displayInput;
 }
-
 
 const operate = function(x, y, opr) { 
     x = storeFirstNumber;
@@ -89,6 +95,8 @@ const operate = function(x, y, opr) {
         return multiply(x, y);
     } else if (opr === "/") {
         return divide(x, y);
+    } else if (opr === "^") {
+        return exponent (x, y);
     }
 }
 
