@@ -1,5 +1,5 @@
 body {
-    background-color:#e6ac00;
+    background-color:#f0b432fb;
 }
 
 
@@ -19,11 +19,11 @@ body {
 
 button {
     flex: 1 1 0;
-    /* border: none; */
+    border: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: #1a1a1a;
-    background-color: #a6a6a6;
+    background-color: #dacdcd;
 }
 
 input {   
@@ -40,21 +40,21 @@ input {
 }
 
 button[class="equal"] {
-    background-color: rgba(85, 153, 54, 0.808); 
+    background-color: rgb(124, 99, 233); 
 }
 
 button[class="power"] {
-    background-color: rgba(204, 62, 19, 0.808); 
+    background-color: rgb(255, 73, 17); 
 }
 
 button[class="point"] {
-    background-color: rgba(196, 199, 24, 0.808); 
+    background-color: rgb(238, 241, 19); 
 }
 
 button[class="clear"] {
-    background-color: rgba(64, 109, 192, 0.808); 
+    background-color: rgba(238, 14, 14, 0.973); 
 }
 
 button[class="delete"] {
-    background-color: rgba(214, 8, 8, 0.808); 
+    background-color: rgb(197, 162, 46); 
 }
