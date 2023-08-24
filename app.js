@@ -30,7 +30,7 @@ let currentInput = "";
 let displayInput = "";
 let decimalAllowed = true;
 let equalToAllowed = true;
-let exponentAllowed = true;
+let operatorsAllowed = true;
 
 function roundUpToDecimal(number, decimalPlaces) {
   const factor = 10 ** decimalPlaces;
@@ -51,6 +51,10 @@ buttons.forEach((button) => {
         } else if (buttonText === "DEL") {
             currentInput = currentInput.slice(0, -1);
             updateScreen();
+        } else if (((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
+        || (buttonText === "/") || (buttonText === "^")) && (currentInput === "")) {
+            currentInput += buttonText;
+            updateScreen();
         } else if ((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
         || (buttonText === "/") || (buttonText === "^")) {
             storeOperator = buttonText;
@@ -58,7 +62,7 @@ buttons.forEach((button) => {
             displayInput = `${currentInput} ${buttonText}`;
             currentInput = "";
             updateScreen();
-        } else if ((buttonText === "=") && (displayInput === "")) {
+        }  else if ((buttonText === "=") && (displayInput === "")) {
             equalToAllowed = false;
         } else if ((buttonText === "=") && (currentInput === "")) {
             equalToAllowed = false;
@@ -69,8 +73,6 @@ buttons.forEach((button) => {
             updateScreen();
         } else if ((buttonText === ".") && (currentInput.includes(buttonText))) {
             decimalAllowed = false;
-        } else if ((buttonText === "^") && (currentInput === "")) {
-            exponentAllowed = false;
         } else {
             currentInput += buttonText;
             updateScreen();
