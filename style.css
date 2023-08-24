@@ -5,7 +5,7 @@ body {
 
 #interface {
     width: 388px;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -19,7 +19,7 @@ body {
 
 button {
     flex: 1 1 0;
-    border: none;
+    /* border: none; */
     font-size: 1.5rem;
     font-weight: bold;
     color: #1a1a1a;
@@ -37,4 +37,24 @@ input {
 .screen {
     display: flex;
     flex-direction: column;
+}
+
+button[class="equal"] {
+    background-color: rgba(85, 153, 54, 0.808); 
+}
+
+button[class="power"] {
+    background-color: rgba(204, 62, 19, 0.808); 
+}
+
+button[class="point"] {
+    background-color: rgba(196, 199, 24, 0.808); 
+}
+
+button[class="clear"] {
+    background-color: rgba(64, 109, 192, 0.808); 
+}
+
+button[class="delete"] {
+    background-color: rgba(214, 8, 8, 0.808); 
 }

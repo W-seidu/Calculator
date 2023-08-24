@@ -4,28 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Calculator App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input id="screenone"></input>
-    <input id="screentwo"></input>
-    <button>0</button>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>.</button>
-    <button>AC</button>
-    <button>+</button>
-    <button>-</button>
-    <button>*</button>
+<div id="interface">    
+    <div class="screen">
+        <input id="screentwo" readonly></input>
+        <input id="screenone" readonly></input>
+    </div>
+    <div class="parts">
+    <button class="clear">AC</button>
     <button>/</button>
-    <button>=</button>
+    <button>*</button>
+    <button class="delete">DEL</button>
+    </div>
+    <div class="parts">
+    <button data-key="Digit7">7</button>
+    <button data-key="Digit8">8</button>
+    <button data-key="Digit9">9</button>
+    <button>-</button>
+    </div>
+    <div class="parts">
+    <button data-key="Digit4">4</button>
+    <button data-key="Digit5">5</button>
+    <button data-key="Digit6">6</button>
+    <button>+</button>
+    </div>
+    <div class="parts">
+    <button data-key="Digit1">1</button>
+    <button data-key="Digit2">2</button>
+    <button data-key="Digit3">3</button>
+    <button data-key="Digit0">0</button>
+    </div>
+    <div class="parts">
+    <button class="point">.</button>
+    <button class="power">^</button>
+    <button class="equal">=</button>
+    </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

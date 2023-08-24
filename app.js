@@ -62,7 +62,7 @@ buttons.forEach((button) => {
             displayInput = `${currentInput} ${buttonText}`;
             currentInput = "";
             updateScreen();
-        }  else if ((buttonText === "=") && (displayInput === "")) {
+        } else if ((buttonText === "=") && (displayInput === "")) {
             equalToAllowed = false;
         } else if ((buttonText === "=") && (currentInput === "")) {
             equalToAllowed = false;
