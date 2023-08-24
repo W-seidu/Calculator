@@ -1,0 +1,40 @@
+body {
+    background-color:#e6ac00;
+}
+
+
+#interface {
+    width: 388px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.parts {
+    display: flex;
+    height: 55px;
+}
+
+
+button {
+    flex: 1 1 0;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1a1a1a;
+    background-color: #a6a6a6;
+}
+
+input {   
+    height: 60px;
+    width : 384px;
+    font-size: 1.5rem;
+    text-align: right;
+    border: none;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+}
