@@ -24,6 +24,12 @@ button {
     font-weight: bold;
     color: #1a1a1a;
     background-color: #dacdcd;
+    transition: background-color 0.2s, transform 0.1s
+}
+
+button:active {
+    background-color: #ccc;
+    transform: scale(0.95);
 }
 
 input {   
