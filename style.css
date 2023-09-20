@@ -4,27 +4,35 @@ body {
 
 
 #interface {
-    width: 388px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10vh;
 }
 
 .parts {
     display: flex;
-    height: 55px;
+    border-top: 1px solid black;
+    width: 390px;
+    height: 65px;
+}
+
+.parts-section {
+    border: 3px solid black;
+    outline: 20px ridge silver;
+    border-radius: 10px;
 }
 
 
 button {
     flex: 1 1 0;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.6em;
     font-weight: bold;
-    color: #1a1a1a;
+    color: black;
     background-color: #dacdcd;
-    transition: background-color 0.2s, transform 0.1s
+    transition: ease-out 0.2s, transform 0.1s
 }
 
 button:active {
@@ -33,9 +41,10 @@ button:active {
 }
 
 input {   
-    height: 60px;
-    width : 384px;
-    font-size: 1.5rem;
+    height: 65px;
+    width : 385px;
+    font-size: 1.6rem;
+    background-color: rgb(128, 233, 128);
     text-align: right;
     border: none;
 }
@@ -43,6 +52,9 @@ input {
 .screen {
     display: flex;
     flex-direction: column;
+    border: 3px solid black;
+    outline: 20px ridge silver;
+    border-radius: 10px;
 }
 
 button[class="equal"] {
@@ -63,4 +75,27 @@ button[class="clear"] {
 
 button[class="delete"] {
     background-color: rgb(197, 162, 46); 
+}
+
+
+@media (max-width:480px) {
+    input {
+        width: 310px;
+    }
+
+    .screen {
+        outline: 15px ridge silver;
+    }
+
+    .parts {
+        width: 315px;
+    }
+
+    .parts-section {
+        outline: 15px ridge silver;
+    }
+
+    button {
+        font-size: 1.5rem;
+    }
 }

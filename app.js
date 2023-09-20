@@ -51,12 +51,12 @@ buttons.forEach((button) => {
         } else if (buttonText === "DEL") {
             currentInput = currentInput.slice(0, -1);
             updateScreen();
-        } else if (((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
-        || (buttonText === "/") || (buttonText === "^")) && (currentInput === "")) {
+        } else if (((buttonText === "+") || (buttonText === "-") || (buttonText === "×")
+        || (buttonText === "÷") || (buttonText === "^")) && (currentInput === "")) {
             currentInput += buttonText;
             updateScreen();
-        } else if ((buttonText === "+") || (buttonText === "-") || (buttonText === "*")
-        || (buttonText === "/") || (buttonText === "^")) {
+        } else if ((buttonText === "+") || (buttonText === "-") || (buttonText === "×")
+        || (buttonText === "÷") || (buttonText === "^")) {
             storeOperator = buttonText;
             storeFirstNumber = +currentInput; 
             displayInput = `${currentInput} ${buttonText}`;
@@ -93,12 +93,13 @@ const operate = function(x, y, opr) {
         return add(x, y);
     } else if (opr === "-") {
         return subtract(x, y);
-    } else if (opr === "*") {
+    } else if (opr === "×") {
         return multiply(x, y);
-    } else if (opr === "/") {
+    } else if (opr === "÷") {
         return divide(x, y);
     } else if (opr === "^") {
         return exponent (x, y);
     }
 }
+
 
